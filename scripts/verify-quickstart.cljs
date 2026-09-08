@@ -13,7 +13,7 @@
 ;; 正規化はちょうど 1 つ（clj-kondo の経過時間）。適用したブロックはそう報告する
 ;; ので、「完全一致」と「正規化して一致」が出力から区別できる。
 (ns verify-quickstart
-  (:require [clojure.string :as str]
+  (:require [kotoba.lang.text :as str]
             ["fs" :as fs]
             ["path" :as path]
             ["child_process" :as cp]))
