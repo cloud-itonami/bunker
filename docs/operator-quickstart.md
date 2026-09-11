@@ -6,7 +6,7 @@
 一致するかは機械で確かめられる:
 
 ```
-nbb scripts/verify-quickstart.cljk
+kbb --backend sci scripts/verify-quickstart.cljk
 ```
 
 検査器はこのファイルの `console` ブロックだけを読み、1 行目の `$ ` に続く
@@ -36,7 +36,7 @@ nbb scripts/verify-quickstart.cljk
 manifest が宣言する cell が増減してもそのまま効く。
 
 ```console
-$ clojure -M:test
+$ kbb -M:test
 
 Running tests in #{"test"}
 
@@ -52,7 +52,7 @@ Ran 9 tests containing 252 assertions.
 （`records-for` の `:as input` が本体で使われていない、`murakumo.cljc:180`）。
 
 ```console
-$ clojure -M:lint
+$ kbb -M:lint
 src/bunker/murakumo.cljk:180:14: warning: unused binding input
 linting took <N>ms, errors: 0, warnings: 1
 ```
@@ -64,7 +64,7 @@ linting took <N>ms, errors: 0, warnings: 1
 ないことは README の食い違い 3 で扱っている。
 
 ```console
-$ clojure -M -e '(require (quote [bunker.murakumo :as m])) (println "cells  " (count m/cell-specs)) (println "gates  " (count m/common-gates)) (println "actor  " m/actor-did) (println "prefix " (m/collection "<cell>"))'
+$ kbb -M -e '(require (quote [bunker.murakumo :as m])) (println "cells  " (count m/cell-specs)) (println "gates  " (count m/common-gates)) (println "actor  " m/actor-did) (println "prefix " (m/collection "<cell>"))'
 cells   18
 gates   7
 actor   did:web:bunker.etzhayyim.com
@@ -78,7 +78,7 @@ effect が 0 本**になり、欠けている gate が 7 つ全部数え上げ�
 部分的に書き込むことはしない。
 
 ```console
-$ clojure -M -e '(require (quote [bunker.murakumo :as m])) (let [p (m/cell-plan :health {})] (println "status       " (:status p)) (println "effects      " (count (:effects p))) (println "missing-gates" (count (:missing-gates p))))'
+$ kbb -M -e '(require (quote [bunker.murakumo :as m])) (let [p (m/cell-plan :health {})] (println "status       " (:status p)) (println "effects      " (count (:effects p))) (println "missing-gates" (count (:missing-gates p))))'
 status        :blocked
 effects       0
 missing-gates 7
@@ -94,7 +94,7 @@ collection 1 つにつき effect が 1 本**出る。`:rkey` は渡した `:requ
 見ても「いつも blocked を返す関数」と区別が付かない。
 
 ```console
-$ clojure -M -e '(require (quote [bunker.murakumo :as m])) (let [att (zipmap m/common-gates (repeat true)) p (m/cell-plan :health {:attestations att :request-id "demo-1"}) e (first (:effects p))] (println "status       " (:status p)) (println "effects      " (count (:effects p))) (println "missing-gates" (count (:missing-gates p))) (println "op           " (:op e)) (println "collection   " (:collection e)) (println "rkey         " (:rkey e)))'
+$ kbb -M -e '(require (quote [bunker.murakumo :as m])) (let [att (zipmap m/common-gates (repeat true)) p (m/cell-plan :health {:attestations att :request-id "demo-1"}) e (first (:effects p))] (println "status       " (:status p)) (println "effects      " (count (:effects p))) (println "missing-gates" (count (:missing-gates p))) (println "op           " (:op e)) (println "collection   " (:collection e)) (println "rkey         " (:rkey e)))'
 status        :ready
 effects       1
 missing-gates 0
