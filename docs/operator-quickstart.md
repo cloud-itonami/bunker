@@ -6,7 +6,7 @@
 一致するかは機械で確かめられる:
 
 ```
-nbb scripts/verify-quickstart.cljs
+nbb scripts/verify-quickstart.cljk
 ```
 
 検査器はこのファイルの `console` ブロックだけを読み、1 行目の `$ ` に続く
@@ -53,7 +53,7 @@ Ran 9 tests containing 252 assertions.
 
 ```console
 $ clojure -M:lint
-src/bunker/murakumo.cljc:180:14: warning: unused binding input
+src/bunker/murakumo.cljk:180:14: warning: unused binding input
 linting took <N>ms, errors: 0, warnings: 1
 ```
 
