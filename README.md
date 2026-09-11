@@ -17,8 +17,8 @@
 
 | パス | 何か | 動くか |
 |---|---|---|
-| `src/bunker/murakumo.cljc` | 純 cljc の actor 境界。cell ごとの計画を立て、gate が揃うまで effect を出さない | **動く**（`clojure -M -e` で呼べる） |
-| `test/bunker/murakumo_test.cljc` | 上の契約テスト。cell 名を hardcode せず `cell-specs` を走査する | **動く**（`clojure -M:test` で 9 tests / 252 assertions） |
+| `src/bunker/murakumo.cljk` | 純 cljc の actor 境界。cell ごとの計画を立て、gate が揃うまで effect を出さない | **動く**（`clojure -M -e` で呼べる） |
+| `test/bunker/murakumo_test.cljk` | 上の契約テスト。cell 名を hardcode せず `cell-specs` を走査する | **動く**（`clojure -M:test` で 9 tests / 252 assertions） |
 | `actor-manifest.jsonld` | 旧 runtime（`k8s-langserver` + `sveltekit-proxy`）向けの宣言。pipeline 10 本、actor 5 本、capability 5 個 | この repo からは**実行されない**（runtime は別） |
 | `actor-manifest.test.ts` | 上の manifest に対する vitest | **動かない**（後述） |
 | `.well-known/did.json` | 公開 DID 文書の repo 側の写し | 静的ファイル |
@@ -53,7 +53,7 @@ execution stays in runtime methods"*、生成される record が `:scaffold tru
 出力**が書いてある。手元の出力と一致するかは検査器で機械的に確かめられる:
 
 ```
-nbb scripts/verify-quickstart.cljs
+nbb scripts/verify-quickstart.cljk
 ```
 
 exit は 3 値 —— `0` 全ブロック一致 / `1` どれかが食い違った / `2` **REFUSED**
