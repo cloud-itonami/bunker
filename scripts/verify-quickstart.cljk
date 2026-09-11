@@ -1,4 +1,4 @@
-#!/usr/bin/env nbb
+#!/usr/bin/env kbb
 ;; docs/operator-quickstart.md に書かれた出力が、いま本当にそう出るかを確かめる。
 ;;
 ;; 設計の要点は 1 つだけ —— **測れなかったことを、測って問題が無かったことと
