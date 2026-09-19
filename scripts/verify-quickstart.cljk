@@ -29,7 +29,7 @@
   できない』に化けて、2 つの原因が同じ 1 つのメッセージに潰れる。"
   [dir]
   (and (fs/existsSync (path/join dir "deps.edn"))
-       (fs/existsSync (path/join dir "src" "bunker" "murakumo.cljc"))))
+       (fs/existsSync (path/join dir "src" "bunker" "murakumo.cljk"))))
 
 (defn- find-repo-root
   "起点から上へ最大 8 段たどる。見つからなければ nil —— 推測で返さない
@@ -43,7 +43,7 @@
       :else (recur (path/dirname dir) (inc n)))))
 
 (def ^:private script-dir
-  (some-> (->> (.-argv js/process) (filter #(str/ends-with? % ".cljs")) first)
+  (some-> (->> (.-argv js/process) (filter #(str/ends-with? % ".cljk")) first)
           path/resolve
           path/dirname))
 
