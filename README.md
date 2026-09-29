@@ -6,7 +6,7 @@
 （一般海域 0.50%、ECA 0.10%）への適合、船舶ごとの燃費と CO₂ 排出の集計 —— を
 担う actor repo である。
 
-名前が機能を示さないので、ここで名乗る（superproject CLAUDE.md「名前が機能を
+名前が機能を示さないので、ここで名乗る（superproject AGENTS.md「名前が機能を
 示さない repo は README 冒頭で名乗る」）。
 
 - **actor DID（コード上）**: `did:web:bunker.etzhayyim.com`
@@ -113,7 +113,7 @@ manifest が購読する場所は交わらない**。なお公開 DID 文書の
   `pipelines` は **10 本**在る（`xrpc` 7 / `cron` 2 / `subscribeRepos` 1）。
   走らせれば落ちるテストが、走らないので緑にも赤にもならないまま置かれている。
 
-これは superproject CLAUDE.md が「測れなかった検査が、測って問題が無かった検査と
+これは superproject AGENTS.md が「測れなかった検査が、測って問題が無かった検査と
 同じ値を返す」と呼ぶ形の一例である。ここでは**消さずに記録する** ——
 manifest 側を 8 本に戻すのか、テストを 10 本に直すのかは、この repo の docs 反復が
 決めることではない。
